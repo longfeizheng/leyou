@@ -8,7 +8,10 @@ import com.leyou.mapper.BrandMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
 
 /**
  * Created by zhenglongfei 2019-11-14.
@@ -40,5 +43,26 @@ public class BrandService {
         Page<Brand> pageInfo = (Page<Brand>) brandMapper.selectByExample(example);
         // 返回结果
         return new PageResult<>(pageInfo.getTotal(), pageInfo);
+    }
+
+    @Transactional
+    public void saveBrand(Brand brand, List<Long> cids) {
+        // 新增品牌信息
+        this.brandMapper.insertSelective(brand);
+        // 新增品牌和分类中间表
+        for (Long cid : cids) {
+            this.brandMapper.insertCategoryBrand(cid, brand.getId());
+        }
+    }
+
+
+    public void removeBrand(Long id) {
+        this.brandMapper.deleteByPrimaryKey(id);
+    }
+
+    public void updateBrand(Brand brand, List<Long> cids) {
+        // 删除品牌分类中间表
+        this.brandMapper.deleteCategoryBrand(brand.getId());
+        this.brandMapper.updateByPrimaryKeySelective(brand);
     }
 }
