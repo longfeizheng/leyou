@@ -43,7 +43,7 @@ public class FastClientImporterTest {
 
     @Test
     public void testUploadAndCreateThumb() throws FileNotFoundException {
-        File file = new File("D:\\test\\baby.png");
+        File file = new File("/Users/zhenglongfei/Downloads/01.png");
         // 上传并且生成缩略图
         StorePath storePath = this.storageClient.uploadImageAndCrtThumbImage(
                 new FileInputStream(file), file.length(), "png", null);

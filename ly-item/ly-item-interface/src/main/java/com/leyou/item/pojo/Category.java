@@ -24,3 +24,4 @@ public class Category {
     private Boolean isParent;
     private Integer sort;
 }
+

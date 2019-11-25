@@ -6,3 +6,4 @@
 | `ly-api-gateway`  | 服务网关  |`10010`  |
 | `ly-item-service`  | 商品服务  |`8081`  |
 | `ly-upload`  | 图片服务  |`8082`  |
+| `ly-search`  | 图片服务  |`8083`  |

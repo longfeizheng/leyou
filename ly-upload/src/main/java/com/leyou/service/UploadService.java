@@ -54,7 +54,9 @@ public class UploadService {
             StorePath storePath = this.storageClient.uploadFile(
                     file.getInputStream(), file.getSize(), extension, null);
             // 2.3、返回完整路径
-            return "http://image.leyou.com/" + storePath.getFullPath();
+//            return "http://image.leyou.com/" + storePath.getFullPath();
+            // docker 容器中安装fastdfs
+            return "http://image.leyou.com:8888/" + storePath.getFullPath();
         } catch (Exception e) {
             return null;
         }

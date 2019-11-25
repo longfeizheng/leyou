@@ -29,7 +29,7 @@ public class UploadController {
      * @param file
      * @return
      */
-    @PostMapping("image")
+    @PostMapping("/image")
     public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
         String url = this.uploadService.upload(file);
         if (StringUtils.isBlank(url)) {

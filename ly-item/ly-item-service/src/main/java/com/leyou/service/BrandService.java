@@ -65,4 +65,8 @@ public class BrandService {
         this.brandMapper.deleteCategoryBrand(brand.getId());
         this.brandMapper.updateByPrimaryKeySelective(brand);
     }
+
+    public List<Brand> queryBrandByCategory(Long cid) {
+        return this.brandMapper.queryByCategoryId(cid);
+    }
 }
