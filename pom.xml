@@ -11,6 +11,9 @@
         <module>ly-upload</module>
         <module>demo-leyou</module>
         <module>ly-search</module>
+        <module>ly-user</module>
+        <module>ly-sms-service</module>
+        <module>ly-auth-center</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
